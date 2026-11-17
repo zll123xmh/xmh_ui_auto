@@ -1,0 +1,24 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="Flask" />
+          <option value="Flask-SQLAlchemy" />
+          <option value="Flask-JWT-Extended" />
+          <option value="Flask-Migrate" />
+          <option value="Flask-CORS" />
+          <option value="Werkzeug" />
+          <option value="SQLAlchemy" />
+          <option value="requests" />
+          <option value="PyYAML" />
+          <option value="openpyxl" />
+          <option value="python-dotenv" />
+          <option value="bcrypt" />
+          <option value="APScheduler" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
