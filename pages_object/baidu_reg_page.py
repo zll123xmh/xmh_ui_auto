@@ -4,15 +4,17 @@ from pages_object.base_page import BasePage
 class RegPage(BasePage):
     def __init__(self,page:Page):
         super().__init__(page)
-        #self.login_button = page.get_by_role("link",name="登录")
-        #self.reg_button = page.get_by_role("link",name="立即注册")
+        # self.login_button = page.get_by_role("link",name="登录")
+        # self.reg_button = page.get_by_role("link",name="立即注册")
         self.reg_input_username = page.get_by_role("textbox",name="用户名")
         self.reg_input_phone = page.get_by_role("textbox",name="手机号")
         self.input_password = page.get_by_role("textbox",name="密　码")
-        #self.verify_code = page.get_by_role("button",name="获取验证码")
+        self.verify_code_button = page.get_by_role("button",name="获取验证码")
+        self.input_verify_code = page.get_by_role("textbox",name="验证码")
+        self.reading_check = page.get_by_role("checkbox",name="阅读并接受")
         self.reg_button = page.get_by_role("button",name="注册")
 
-    def reg_page(self,username,phone_number,password):
+    def reg_page(self,username,phone_number,password,verify_code):
 
 
         # self.login_button.wait_for(state="visible", timeout=10000)
@@ -31,9 +33,21 @@ class RegPage(BasePage):
 
         self.input_text(self.reg_input_phone,phone_number)
 
-        self.input_password.wait_for(state="visible", timeout=1000)
+        self.input_password.wait_for(state="visible", timeout=10000)
 
         self.input_text(self.input_password,password)
+
+        self.verify_code_button.wait_for(state="visible", timeout=20000)
+
+        self.click(self.verify_code_button)
+
+        self.input_verify_code.wait_for(state="visible", timeout=20000)
+
+        self.input_text(self.input_verify_code,verify_code)
+
+        self.reading_check.wait_for(state="visible", timeout=20000)
+
+        self.click(self.reading_check)
 
         self.reg_button.wait_for(state="visible", timeout=10000)
 

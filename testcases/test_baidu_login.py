@@ -16,7 +16,9 @@ class TestBaiduLogin:
     def test_baidu_success_login(self,username,password,page:Page):
         baidu_page = BaiduPage(page)
         baidu_page.baidu_login_page(username,password)
+        assert page.title() == "百度一下，你就知道"
 
+    @pytest.mark.flaky(reruns=3,reruns_delay=1)
     @pytest.mark.parametrize('username,password', [(USERNAME_FAILURE,PASSWORD_FAILURE)])
     def test_baidu_failure_login(self,username:str,password:str,page:Page):
         baidu_page = BaiduPage(page)

@@ -9,7 +9,7 @@ def browser():
         browser = p.chromium.launch(headless=False,args=['--start-maximized'])
         yield browser
         browser.close()
-Base_Url = env_config["baidu_url"]["reg_url"]
+Base_Url = env_config["reg_url"]
 @pytest.fixture(scope="function")
 def page(browser:Browser):
     page = browser.new_page(no_viewport=True )
@@ -17,4 +17,3 @@ def page(browser:Browser):
     yield page
     time.sleep(3)
     page.close()
-
